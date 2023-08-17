@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# contact:
+#     path: /contact
+#     controller: App\Controller\ContactController::contact
+
+# cgu:
+#     path: /cgu
+#     controller: App\Controller\ContactController::cgu
