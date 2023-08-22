@@ -3,18 +3,48 @@
 {% block title %}Hello SortieController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+  <h1>les sorties</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">tire </th>
+            <th scope="col">description </th>
+            <th scope="col">lieu de sorti</th>
+            <th scope="col">date </th>
+            <th scope="col">lieu de rdv</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for sortie in sorties %}
+        <tr>
+            <td scope="row">{{sortie.id}}</td>
+            <td scope="row">{{ sortie.titre }}</td>
+            <td scope="row"> {{ sortie.description }}</td>
+            <td scope="row">{{ sortie.lieudesortie }}</td>
+            <td scope="row">{{ sortie.datedesortie }}</td>
+            <td scope="row">{{sortie.lieuduRDV}}</td>
+            <td>
+            <a href="{{ path('sortie_show',{'id':sortie.id}) }}" class="btn btn-primary">detail</a>
+            <a href="" class="btn btn-primary">modifier</a>
+            <a href="" class="btn btn-primary">supprimer</a>
+            
+            
+            </td>
+        
+        
+        </tr>
+    {% endfor %}
+    
+    </tbody>
+    
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/opt/lampp/htdocs/damienstudi/sf6/boilerplate/src/Controller/SortieController.php'|file_link(0) }}">src/Controller/SortieController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/opt/lampp/htdocs/damienstudi/sf6/boilerplate/templates/sortie/index.html.twig'|file_link(0) }}">templates/sortie/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+</table>
+<a href="#" class="btn btn-primary">creer une sortie</a>
+
+
 {% endblock %}

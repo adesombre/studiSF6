@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MotoController!{% endblock %}
+
+{% block body %}
+<table class="table">
+   
+        <tr>
+            <th scope="row">id</th>
+            <td scope="row">{{ moto.id }}</td>
+        </tr>
+        <tr>
+            <th scope="row">immatriculation</th>
+            <td scope="row">{{ moto.immtriculation }}</td>
+        </tr>
+            
+           
+            
+        
+        </tr>
+        
+   
+</table>
+ <a href="{{ path('moto_index') }}" class="btn btn-primary">retour a la liste</a>
+{% endblock %}

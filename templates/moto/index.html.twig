@@ -19,7 +19,7 @@
             <td scope="row">{{ moto.id }}</td>
             <td scope="row">{{ moto.immtriculation }}</td>
             <td scope="row">
-                <a href="#">details</a>
+                <a href="{{ path('moto_show' ,{'id':moto.id})}}" class="btn btn-primary" >details</a>
                 <a href="#">modifier</a>
                 <a href="#">supprimer</a>
             
@@ -30,5 +30,5 @@
     </tbody>
     {% endfor %}
 </table>
- <a href="#">ajouter une moto</a>
+ <a href="#" class="btn btn-primary">ajouter une moto</a>
 {% endblock %}

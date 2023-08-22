@@ -23,8 +23,8 @@ class Sortie
     #[ORM\Column(length: 255)]
     private ?string $lieudesortie = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $datedesortie = null;
+    #[ORM\Column(length: 255)]
+    private ?string $datedesortie = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lieuduRDV = null;
@@ -70,12 +70,12 @@ class Sortie
         return $this;
     }
 
-    public function getDatedesortie(): ?\DateTimeInterface
+    public function getDatedesortie(): ?string
     {
         return $this->datedesortie;
     }
 
-    public function setDatedesortie(\DateTimeInterface $datedesortie): static
+    public function setDatedesortie(string $datedesortie): static
     {
         $this->datedesortie = $datedesortie;
 
