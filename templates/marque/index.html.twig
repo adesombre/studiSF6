@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marque{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope= "col">id</th>
+                <th scope= "col">nom</th>
+                <th scope= "col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for marque in marques %}
+                
+           
+            <tr>
+            <td scope= "row">{{ marque.id }}</td>
+            <td scope= "row">{{ marque.libelle }}</td>
+            <td scope= "row">
+                <a class="btn btn-primary" href="{{ path('marque_show',{'id':marque.id}) }}">detail</a>
+                 <a class="btn btn-primary" href="{{ path('marque_create' ,{'id':marque.id}) }}">modifier</a>
+                  <a class="btn btn-primary" href="{{ path('marque_delete',{'id':marque.id}) }}">supprimer</a>
+            </td>
+            </tr>
+                                  
+{% endfor %}
+  
+        </tbody>
+
+        
+    </table>
+
+        <a class="btn btn-primary" href="#">ajouter une marque</a>
+
+
+
+{% endblock %}
