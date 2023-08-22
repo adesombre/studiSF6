@@ -21,12 +21,12 @@ class CotisationController extends AbstractController
     }
 
      #[Route('/cotisation/{id}', name: 'cotisation_show', methods:['GET'])]
-    public function index(Cotisation $cotisations): Response
+    public function show(Cotisation $cotisation): Response
     {
         
-        return $this->render('cotisation/index.html.twig', [
+        return $this->render('cotisation/show.html.twig', [
             'controller_name' => 'CotisationController',
-            'cotisations'=>$cotisations,
+            'cotisation'=>$cotisation,
         ]);
     }
 }

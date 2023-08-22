@@ -14,20 +14,20 @@ class Cotisation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $annee = null;
+    #[ORM\Column(length:30)]
+    private ?string $annee = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getAnnee(): ?\DateTimeInterface
+    public function getAnnee(): ?string
     {
         return $this->annee;
     }
 
-    public function setAnnee(\DateTimeInterface $annee): static
+    public function setAnnee(string $annee): static
     {
         $this->annee = $annee;
 
