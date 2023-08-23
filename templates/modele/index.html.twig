@@ -23,8 +23,10 @@
                 <a href="#" class="btn btn-primary">supprimer</a> 
             </td>
         </tr>
+
     {% endfor %}
     </tbody>
     </table>
-     <a href="#" class="btn btn-primary">ajouter un modele</a>
+                 <a href="{{path('modele_create')}}" class="btn btn-primary">ajouter un modele</a>
+
 {% endblock %}

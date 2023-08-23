@@ -29,4 +29,16 @@ class CotisationController extends AbstractController
             'cotisation'=>$cotisation,
         ]);
     }
+
+     #[Route('/cotisation/create', name: 'cotisation_create', methods:['GET','POST'])]
+    public function create(Cotisation $cotisation): Response
+    {
+        $form= $this->createForm(CotisationType::class);
+        return $this->render('cotisation/show.html.twig', [
+            'controller_name' => 'CotisationController',
+            'form'=>$form->createView(),
+            
+        ]);
+    }
+
 }

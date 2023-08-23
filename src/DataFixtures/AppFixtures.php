@@ -1,6 +1,7 @@
 <?php
 
 namespace App\DataFixtures;
+use App\Entity\Cotisation;
 use App\Entity\Modele;
 use App\Entity\moto;
 use App\Entity\Marque;
@@ -41,16 +42,23 @@ class AppFixtures extends Fixture
         $moto3->setImmtriculation('456-78-7');
         $manager->persist($moto3);
 
-        $modele1 = new modele();
+        $modele1 = new Modele();
         $modele1->setLibelle(' 500 ');
         $manager->persist($modele1);
-        $modele2 = new modele();
+        $modele2 = new Modele();
         $modele2->setLibelle(' 1000 ');
         $manager->persist($modele2);
-        $modele3 = new modele();
+        $modele3 = new Modele();
         $modele3->setLibelle('2000 ');
         $manager->persist($modele3);
 
+        $cotisation1 = new Cotisation();
+        $cotisation1->setAnnee(2020);
+        $manager->persist($cotisation1);
+
+         $cotisation2 = new Cotisation();
+        $cotisation2->setAnnee(2022);
+        $manager->persist($cotisation2);
 
         
 

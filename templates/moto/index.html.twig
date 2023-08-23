@@ -22,13 +22,11 @@
                 <a href="{{ path('moto_show' ,{'id':moto.id})}}" class="btn btn-primary" >details</a>
                 <a href="#">modifier</a>
                 <a href="#">supprimer</a>
-            
             </td>
-        
         </tr>
-        
+         <a href="{{path('moto_create',{'id':moto.id})}}" class="btn btn-primary">ajouter une moto</a>
+
     </tbody>
     {% endfor %}
 </table>
- <a href="#" class="btn btn-primary">ajouter une moto</a>
 {% endblock %}

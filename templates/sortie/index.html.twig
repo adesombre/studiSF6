@@ -1,50 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SortieController!{% endblock %}
+{% block title %}
+  Hello SortieController!
+{% endblock %}
 
 {% block body %}
   <h1>les sorties</h1>
-<table class="table">
+  <table class="table">
     <thead>
-        <tr>
-            <th scope="col">id</th>
-            <th scope="col">tire </th>
-            <th scope="col">description </th>
-            <th scope="col">lieu de sorti</th>
-            <th scope="col">date </th>
-            <th scope="col">lieu de rdv</th>
-            <th scope="col"></th>
-        </tr>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">tire</th>
+        <th scope="col">description</th>
+        <th scope="col">lieu de sorti</th>
+        <th scope="col">date</th>
+        <th scope="col">lieu de rdv</th>
+        <th scope="col"></th>
+      </tr>
     </thead>
     <tbody>
-       {% for sortie in sorties %}
+      {% for sortie in sorties %}
         <tr>
-            <td scope="row">{{sortie.id}}</td>
-            <td scope="row">{{ sortie.titre }}</td>
-            <td scope="row"> {{ sortie.description }}</td>
-            <td scope="row">{{ sortie.lieudesortie }}</td>
-            <td scope="row">{{ sortie.datedesortie }}</td>
-            <td scope="row">{{sortie.lieuduRDV}}</td>
-            <td>
-            <a href="{{ path('sortie_show',{'id':sortie.id}) }}" class="btn btn-primary">detail</a>
+          <td scope="row">{{ sortie.id }}</td>
+          <td scope="row">{{ sortie.titre }}</td>
+          <td scope="row">{{ sortie.description }}</td>
+          <td scope="row">{{ sortie.lieudesortie }}</td>
+          <td scope="row">{{ sortie.datedesortie }}</td>
+          <td scope="row">{{ sortie.lieuduRDV }}</td>
+          <td>
+            <a href="{{ path('sortie_show', { id: sortie.id }) }}" class="btn btn-primary">detail</a>
             <a href="" class="btn btn-primary">modifier</a>
             <a href="" class="btn btn-primary">supprimer</a>
-            
-            
-            </td>
-        
-        
+          </td>
         </tr>
-    {% endfor %}
-    
+      {% endfor %}
     </tbody>
-    
-
-    
-
-
-</table>
-<a href="#" class="btn btn-primary">creer une sortie</a>
-
+  </table>
+          <a href="{{ path('sortie_create') }}" class="btn btn-primary">creer une sortie</a>
 
 {% endblock %}

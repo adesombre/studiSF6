@@ -17,23 +17,16 @@
            
             <tr>
             <td scope= "row">{{ marque.id }}</td>
-            <td scope= "row">{{ marque.libelle }}</td>
-            <td scope= "row">
+            <td >{{ marque.libelle }}</td>
+            <td >
                 <a class="btn btn-primary" href="{{ path('marque_show',{'id':marque.id}) }}">detail</a>
                  <a class="btn btn-primary" href="{{ path('marque_create' ,{'id':marque.id}) }}">modifier</a>
                   <a class="btn btn-primary" href="{{ path('marque_delete',{'id':marque.id}) }}">supprimer</a>
             </td>
             </tr>
-                                  
-{% endfor %}
-  
-        </tbody>
-
-        
+            {% endfor %}
+        </tbody> 
     </table>
-
-        <a class="btn btn-primary" href="#">ajouter une marque</a>
-
-
+                    <a class="btn btn-primary" href="{{ path('marque_create')}}">ajouter une marque</a>                    
 
 {% endblock %}

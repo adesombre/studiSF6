@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marque{% endblock %}
+
+{% block body %}
+    {{ form(form)}}
+
+        <a class="btn btn-primary" href="{{ path('sortie_index') }}">retour a la liste</a>
+
+
+
+{% endblock %}
