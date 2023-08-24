@@ -5,6 +5,7 @@ use App\Entity\Modele;
 use App\Form\ModeleType;
 use App\Repository\ModeleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,10 +30,16 @@ class ModeleController extends AbstractController
         ]);
     }
     
-    #[Route('/modele/create', name: 'modele_create', methods:['GET','POST'])]
-    public function create(Modele $modele): Response
+    #[Route('/modele/create', name: 'modele_create',priority:10, methods:['GET','POST'])]
+    public function create(Request $request,ModeleRepository $repo): Response
     {
-        $form =$this->createForm(ModeleType::class);
+        $modele =new Modele();
+        $form =$this->createForm(ModeleType::class, $modele);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()){
+            $repo->save($modele, true);
+            return $this->redirectToRoute('modele_index');
+        }
         return $this->render('modele/create.html.twig', [
             'controller_name' => 'Modele',
             'form'=>$form->createView(),

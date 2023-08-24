@@ -24,9 +24,10 @@
                 <a href="#">supprimer</a>
             </td>
         </tr>
-         <a href="{{path('moto_create',{'id':moto.id})}}" class="btn btn-primary">ajouter une moto</a>
 
     </tbody>
     {% endfor %}
 </table>
+         <a href="{{path('moto_create')}}" class="btn btn-primary">ajouter une moto</a>
+
 {% endblock %}

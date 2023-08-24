@@ -45,7 +45,7 @@ class CotisationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-         public function save(Cotisation $entity, bool $flush = false): void
+     public function save(Cotisation $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 

@@ -5,6 +5,7 @@ use App\Entity\Moto;
 use App\Form\MotoType;
 use App\Repository\MotoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -29,10 +30,17 @@ class MotoController extends AbstractController
         ]);
     }
 
-    #[Route('/moto/create', name: 'moto_create',methods:['GET'])]
-    public function create(Moto $moto): Response
+    #[Route('/moto/create', name: 'moto_create',priority:10,methods:['GET'])]
+    public function create(Request $request,MotoRepository $repo): Response
     { 
-        $form=$this->createForm(MotoType::class);
+
+        $moto = new Moto();
+        $form=$this->createForm(MotoType::class, $moto);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()){
+            $repo->save($moto, true);
+            return $this->redirectToRoute('moto_index');
+        }
         return $this->render('moto/create.html.twig', [
             'controller_name' => 'MotoController',
             'form'=>$form->createView(),
